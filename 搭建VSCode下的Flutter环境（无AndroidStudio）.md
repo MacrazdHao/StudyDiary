@@ -74,6 +74,8 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
 ```shell
 安装指令：
 ./sdkmanager.bat "[DependenceName]"
+```
+```
 build-tools;[版本号]   平台构建工具
 platform-tools   平台工具集
 platforms;android-[版本号]   相应版本的APIs，对应构建工具
