@@ -75,7 +75,7 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
 ./sdkmanager.bat "[DependenceName]"
 ```
 ```
-DependenceName对应刚才输出的依赖目录列表的依赖，在里面里找到以下依赖的名字逐个安装（安装最新的就好了）：
+上述命令中的[DependenceName]对应刚才输出的依赖目录列表的依赖，在里面里找到以下依赖的名字逐个安装（安装最新的就好了）：
 build-tools;[版本号]   平台构建工具
 platform-tools   平台工具集
 platforms;android-[版本号]   相应版本的APIs，对应构建工具
