@@ -1,8 +1,8 @@
-#前言
+# 前言
 没有前言，不废话
-#配置环境
+# 配置环境
 Win10系统，无AndroidStudio的环境下，搭建Flutter在VSCode中的运行环境
-#配置资源
+# 配置资源
 * JDK8
 ```
 一定要JDK8，不要，官网下载旧版需要登录，所以预留了一个百度云备份
@@ -14,7 +14,7 @@ https://pan.baidu.com/s/1uWcRwUxZzc0m3fYQYTcOQw
 ```
 进入页面后找到Command line tools only点击下载
 下载地址：
-https://developer.android.com/studio/#command-tools
+https://developer.android.com/studio/# command-tools
 百度云备用链接：
 https://pan.baidu.com/s/1FeBX9Ui8WMMIGfyL96HdpQ
 提取码: wv11
@@ -23,7 +23,7 @@ https://pan.baidu.com/s/1FeBX9Ui8WMMIGfyL96HdpQ
 ```
 建议下载稳定版
 下载地址：
-https://flutter.dev/docs/development/tools/sdk/releases?tab=windows#windows
+https://flutter.dev/docs/development/tools/sdk/releases?tab=windows# windows
 由于国内访问Flutter可能会受到限制，Flutter官网给中国开发者提供了临时镜像，我们把下面的系统环境变量添加到用户环境里，就可以获取临时镜像，如果翻墙的话，应该设置不设置都无法所谓。
 PUB_HOSTED_URL 值https://pub.flutter-io.cn
 FLUTTER_STORAGE_BASE_URL 值https://storage.flutter-io.cn
@@ -43,10 +43,10 @@ http://www.gekorm.com/dart-windows/
 按照所需版本，在以下页面中选择下载：
 https://gradle.org/releases/
 ```
-#JDK环境配置
+# JDK环境配置
 系统配置：JAVA_HOME,Path,CLASSPATH
 不赘述，参考https://www.cnblogs.com/suni/p/8279672.html
-#Android SDK的安装及配置
+# Android SDK的安装及配置
 这是个关键的一步，可以避开臃肿得像恶魔一样的AndroidStudio的安装。
 1. 将下载来的Android SDK Tools的压缩包解压到某一文件夹，这里以D:/Android_SDK为例，注意，不要把压缩包里面tools文件夹中的文件解压到文件夹，而是直接保留tools文件夹进行解压，解压后即D:/Android_SDK/tools
 2. 打开刚才解压的文件夹，进入D:/Android_SDK/tools/bin，找到**SDKManager.bat**
@@ -77,7 +77,7 @@ system-images;android-[版本号];google_apis_playstore;x86   模拟器系统镜
 7. 配置系统环境
 添加系统变量：ANDROID_HOME、ANDROID_SDK
 	变量值都是刚才Android SDK tools解压的路径，依照刚才的示例则是D:/Android_SDK
-#Flutter的安装及配置
+# Flutter的安装及配置
 1. 将下载的Flutter中的flutter文件夹解压到指定目录即可，这里以D:/为例
 2. 在解压目录下找到**flutter_console.bat**文件并双击运行，即可运行flutter命令
 3. 配置系统环境，在系统变量中Path后面添加刚才的flutter解压路径的bin目录，按照刚才的示例则是D:/flutter/bin
@@ -89,7 +89,7 @@ system-images;android-[版本号];google_apis_playstore;x86   模拟器系统镜
 ✗ Unable to locate Android SDK.
 Install Android Studio from: https://developer.android.com/studio/index.html 
 On first launch it will assist you in installing the Android SDK components.
-(or visit https://flutter.io/setup/#android-setup for detailed instructions).
+(or visit https://flutter.io/setup/# android-setup for detailed instructions).
 If Android SDK has been installed to a custom location, set $ANDROID_HOME to that location.
 [✓] Android Studio (version 3.0.0)
 • Android Studio at /home/f/App/android-studio
@@ -98,11 +98,11 @@ If Android SDK has been installed to a custom location, set $ANDROID_HOME to tha
 [✓] Connected devices（1 available）
 ```
 	其他的则按照（仔细阅读英文提示）对应提示安装相关依赖即可
-#VSCode的安装及配置
+# VSCode的安装及配置
 1. 自己去官网下载VSCode
 2. 在插件模块搜索flutter，点击安装(install)第一个Flutter
 3. 重启VSCode，完成安装
-#Flutter项目的新建及运行
+# Flutter项目的新建及运行
 1. 头部菜单：查看 - 命令面板（Ctrl+Shift+P）
 2. 输入flutter，选择**Flutter: New Project**
 3. 输入项目名称，这里以myapp为例，回车确定
