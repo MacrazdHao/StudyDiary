@@ -70,11 +70,11 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
     at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 ```
 6. 安装所需的依赖
-	在刚才输出的依赖目录列表里找到：
 ```shell
 安装指令：
 ./sdkmanager.bat "[DependenceName]"
 ```
+在刚才输出的依赖目录列表里找到：
 ```
 build-tools;[版本号]   平台构建工具
 platform-tools   平台工具集
