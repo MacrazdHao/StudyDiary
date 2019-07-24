@@ -58,8 +58,16 @@ https://gradle.org/releases/
 5. 正常情况下，会输出一大片的依赖目录列表；
 	如果出现以下类似的错误，则可能是你下载的JDK版本没有按照一开始的要求来下载，重申，一定要JDK8，新版都是和Android SDK不兼容的：
 ```
-Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema at com.android.repository.api.SchemaModule$SchemaModuleVersion.<init>(SchemaModule.java:156) at com.android.repository.api.SchemaModule.<init>(SchemaModule.java:75) at com.android.sdklib.repository.AndroidSdkHandler.<clinit>(AndroidSdkHandler.java:81) at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:73) at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:48)
-Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:582) at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:190) at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
+Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema 
+    at com.android.repository.api.SchemaModule$SchemaModuleVersion.<init>(SchemaModule.java:156) 
+    at com.android.repository.api.SchemaModule.<init>(SchemaModule.java:75) 
+    at com.android.sdklib.repository.AndroidSdkHandler.<clinit>(AndroidSdkHandler.java:81) 
+    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:73) 
+    at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:48)
+Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema 
+    at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:582) 
+    at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:190) 
+    at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:499)
 ```
 6. 安装所需的依赖
 	在刚才输出的依赖目录列表里找到：
