@@ -121,3 +121,8 @@ If Android SDK has been installed to a custom location, set $ANDROID_HOME to tha
 6. 真机设备开启**USB调试**，连接真机设备。如果使用虚拟设备的可以忽略这个步骤，自己琢磨，我这里没用虚拟设备
 7. 头部菜单：调试 - 启动调试
 8. 真机设备自动安装并运行自动生成的flutter Demo
+
+# 更新Flutter
+1. vscode中打开任意一个Flutter项目
+2. Ctrl + ~ 调出终端，运行 flutter packages get 命令
+3. 等待完成更新
