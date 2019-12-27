@@ -1,5 +1,6 @@
 # 为开发公司App不得不开新坑
 ## 坑1 - 运行环境
+参考文章：https://blog.csdn.net/u013551952/article/details/103227165
 运行react-native start(开启Metro Bundler)时出现如下错误：
 ```
 error Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests__\\.*)$)$/: Unterminated character class. Run CLI with --verbose flag for more details.
