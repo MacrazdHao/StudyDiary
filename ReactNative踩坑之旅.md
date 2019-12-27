@@ -1,0 +1,18 @@
+# 为开发公司App不得不开新坑
+## 坑1 - 运行环境
+运行react-native start(开启Metro Bundler)时出现如下错误：
+```
+error Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests__\\.*)$)$/: Unterminated character class. Run CLI with --verbose flag for more details.
+SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\]react[\\\]dist[\\\].*|website\\node_modules\\.*|heapCapture\\bundle\.js|.*\\__tests_s__\\.*)$/: Unterminated character class
+    at new RegExp (<anonymous>)
+    at blacklist (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\metro-config\src\defaults\blacklist.js:34:10)
+    at getBlacklistRE (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:66:59)
+    at getDefaultConfig (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:82:20)
+    at load (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\@react-native-community\cli\build\tools\loadMetroConfig.js:118:25)
+    at Object.runServer [as func] (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\@react-native-community\cli\build\commands\server\runServer.js:82:58)    
+    at Command.handleAction (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\@react-native-community\cli\build\index.js:164:23)
+    at Command.listener (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\commander\index.js:315:8)
+    at Command.emit (events.js:210:5)
+    at Command.parseArgs (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\commander\index.js:651:12
+```
+在终端中打开cmd，输入node -v检查node.js版本，如果超过12.10，请卸载你的node.js，并且下载旧版降级到12.10或以下，问题自动解决。
