@@ -1,5 +1,6 @@
 # 为开发公司App不得不开新坑
 ## 坑1 - 运行环境
+
 参考文章：https://blog.csdn.net/u013551952/article/details/103227165
 
 运行react-native start(开启Metro Bundler)时出现如下错误：
@@ -18,3 +19,11 @@ SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\
     at Command.parseArgs (D:\WORKER\mytest\ReactNative\AwesomeProject\node_modules\commander\index.js:651:12
 ```
 在终端中打开cmd，输入node -v检查node.js版本，如果超过12.10，请卸载你的node.js，并且下载旧版降级到12.10或以下，问题自动解决。
+
+## 坑2 每个原生组件都要import
+
+这不知道算不算坑，反正就会觉得挺麻烦的，一不留神还以为别的地方出错。
+
+```javascript
+import { StyleSheet, Text, View } from 'react-native';
+```
