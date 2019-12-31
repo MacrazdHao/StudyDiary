@@ -27,3 +27,12 @@ SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\
 ```javascript
 import { StyleSheet, Text, View } from 'react-native';
 ```
+
+## 坑3 长度不能使用百分比
+
+```javascript
+// 获取设备宽度
+let MainWidth = Dimensions.get('window').width;
+// 乘以具体百分比
+let res = MainWidth*0.33;
+```
