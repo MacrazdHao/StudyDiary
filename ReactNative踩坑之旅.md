@@ -28,11 +28,15 @@ SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\
 import { StyleSheet, Text, View } from 'react-native';
 ```
 
-## 坑3 长度不能使用百分比
+## 坑3 获取设备百分比
 
 ```javascript
 // 获取设备宽度
 let MainWidth = Dimensions.get('window').width;
-// 乘以具体百分比
+// 设备百分比：乘以具体百分比
 let res = MainWidth*0.33;
 ```
+
+## 坑4 Button没有style属性
+
+react native自带的Button组件不支持通过style来进行自定义样式，只支持最低限度的样式修改，如单独的color属性
