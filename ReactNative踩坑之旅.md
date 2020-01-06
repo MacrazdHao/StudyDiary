@@ -86,3 +86,15 @@ export default function TestComponent(props) {
 ## 坑7 不支持CSS的clac()函数
 
 正在寻找方法解决
+
+方法一：
+
+使用webpack Loader，引入React-Native可用的less
+
+https://www.jianshu.com/p/ac9aa35e77e5
+
+这个方法未做试验，有兴趣的自行尝试。
+
+方法二：
+
+目前正在尝试使用的方法，无设置width，而是使用margin进行定宽。
