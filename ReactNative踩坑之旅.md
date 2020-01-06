@@ -40,3 +40,7 @@ let res = MainWidth*0.33;
 ## 坑4 Button没有style属性
 
 react native自带的Button组件不支持通过style来进行自定义样式，只支持最低限度的样式修改，如单独的color属性
+
+## 坑5 不支持CSS选择器或伪元素
+
+就是不支持，暂时没找到对应方案
