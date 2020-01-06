@@ -48,4 +48,18 @@ react native自带的Button组件不支持通过style来进行自定义样式，
 ## 坑6 Image组件不设置宽高无法显示
 
 Image组件默认宽高为0，并且只设宽/高其中一个，另一个不会自动调整。
+
 如何按比例缩放图片，仍在探究。
+
+本地图片宽高：
+
+```javascript
+import { Image } from 'react-native';
+export default function CarouselBox(props) {
+    const img = require('../assets/images/test.jpg');
+    // 按比例缩放时，就按比例取值即可
+    let imgWidth = Image.resolveAssetSource(img).height;
+    let imgHeight = Image.resolveAssetSource(img).width;
+    return <Image source={img} style={{width: imgWidth, height: imgHeight}} />
+}
+```
