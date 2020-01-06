@@ -82,3 +82,7 @@ export default function TestComponent(props) {
     return <Image source={img} style={{width: width, height: height}} />
 }
 ```
+
+## 坑7 不支持CSS的clac()函数
+
+正在寻找方法解决
