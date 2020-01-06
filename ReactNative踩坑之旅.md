@@ -52,6 +52,7 @@ Image组件默认宽高为0，并且只设宽/高其中一个，另一个不会�
 本地图片宽高：
 
 ```javascript
+import React from 'react';
 import { Image } from 'react-native';
 export default function TestComponent(props) {
     const img = require('../assets/images/test.jpg');
