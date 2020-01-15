@@ -84,9 +84,71 @@ extras;intel;Hardware_Accelerated_Execution_Manager   PC硬件加速相关(这�
 emulator   模拟器，可选。如果真机调试可忽略
 system-images;android-[版本号];google_apis_playstore;x86   模拟器系统镜像，可选。如果真机调试可忽略
 ```
+
 7. 配置系统环境
 添加系统变量：ANDROID_HOME、ANDROID_SDK
 	变量值都是刚才Android SDK tools解压的路径，依照刚才的示例则是D:/Android_SDK
+
+附：若你使用的不是Flutter，同时如果需要手动创建emulator虚拟机的话，则按照以下流程进行创建：
+
+1. 使用控制台打开Android_SDK\tools目录
+2. 输入一下命令行：
+```
+android list target
+```
+3. 你会得到类似以下这样的输出：
+```
+**************************************************************************
+The "android" command is deprecated.
+For manual SDK, AVD, and project management, please use Android Studio.
+For command-line tools, use tools\bin\sdkmanager.bat
+and tools\bin\avdmanager.bat
+**************************************************************************
+
+Invoking "C:\Program Files\Android_SDK\tools\bin\avdmanager" list target
+
+Available Android targets:==============] 100% Fetch remote repository...
+----------
+id: 1 or "android-23"
+     Name: Android API 23
+     Type: Platform
+     API level: 23
+     Revision: 3
+----------
+id: 2 or "android-26"
+     Name: Android API 26
+     Type: Platform
+     API level: 26
+     Revision: 2
+----------
+id: 3 or "android-27"
+     Name: Android API 27
+     Type: Platform
+     API level: 27
+     Revision: 3
+----------
+id: 4 or "android-28"
+     Name: Android API 28
+     Type: Platform
+     API level: 28
+     Revision: 6
+----------
+id: 5 or "android-29"
+     Name: Android API 29
+     Type: Platform
+     API level: 29
+     Revision: 3
+```
+4. 这是你已经下载好的安卓系统列表，选好一个后，然后输入以下命令：
+```
+android create avd -n [虚拟机名称] -k [id]
+```
+5. 等待创建完成后，执行以下命令运行虚拟机：
+```
+emulator -avd [虚拟机名称]
+```
+(以上参考：https://cloud.tencent.com/developer/article/1499938)
+
 # Flutter的安装及配置
 1. 将下载的Flutter中的flutter文件夹解压到指定目录即可，这里以D:/为例
 2. 在解压目录下找到**flutter_console.bat**文件并双击运行，即可运行flutter命令
