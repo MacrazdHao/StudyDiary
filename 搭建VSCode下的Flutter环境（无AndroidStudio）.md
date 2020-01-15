@@ -53,7 +53,7 @@ https://gradle.org/releases/
 3. 在该目录的窗口空白处按住Shift+鼠标右键，选择打开Power Shell窗口
 4. 输入（可输入sdk然后按Tab键自动补全，然后再输入*--list*）
 ```shell
-./sdkmanager.bat --list
+.\sdkmanager.bat --list
 ```
 5. 正常情况下，会输出一大片的依赖目录列表；
 	如果出现以下类似的错误，则可能是你下载的JDK版本没有按照一开始的要求来下载，重申，一定要JDK8，新版都是和Android SDK不兼容的：
@@ -72,7 +72,7 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema
 6. 安装所需的依赖
 ```shell
 安装指令：
-./sdkmanager.bat "[DependenceName]"
+.\sdkmanager.bat "[DependenceName]"
 ```
 ```
 上述命令中的[DependenceName]对应刚才输出的依赖目录列表的依赖，在里面里找到以下依赖的名字逐个安装（安装最新的就好了）：
