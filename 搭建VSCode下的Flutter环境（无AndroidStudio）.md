@@ -82,7 +82,7 @@ platforms;android-[版本号]   相应版本的APIs，对应构建工具
 patcher;v4   补丁包
 extras;intel;Hardware_Accelerated_Execution_Manager   PC硬件加速相关(这里就是这么长，没错)
 emulator   模拟器，可选。如果真机调试可忽略
-system-images;android-[版本号];google_apis_playstore;x86   模拟器系统镜像，可选。如果真机调试可忽略
+system-images;android-[版本号];google_apis_playstore;x86   **模拟器系统镜像**，可选。如果真机调试可忽略
 ```
 
 7. 配置系统环境
@@ -139,10 +139,12 @@ id: 5 or "android-29"
      API level: 29
      Revision: 3
 ```
+说明：如果上面安装依赖的第6步中下载的镜像文件在这里没有显示，请检查指令是否错误，或SDK版本是否为旧版，如果是旧版，请务必在我提供的地址（官方/百度云）上下载，并重新配置全局变量
 4. 这是你已经下载好的安卓系统列表，选好一个后，然后输入以下命令：
 ```
 android create avd -n [虚拟机名称] -k [id]
 ```
+说明：如果无法执行该指令，请检查指令是否错误，或SDK版本是否为旧版，如果是旧版，请务必在我提供的地址（官方/百度云）上下载，并重新配置全局变量
 5. 等待创建完成后，执行以下命令运行虚拟机：
 ```
 emulator -avd [虚拟机名称]
