@@ -147,6 +147,37 @@ android create avd -n [虚拟机名称] -k [id]
 ```
 emulator -avd [虚拟机名称]
 ```
+6. 运行虚拟机时可能会出现的问题：
+* 运行时出错提示：
+```
+PANIC：Missing emulator engine program for 'x86' CPU
+```
+    解决方法：
+    1. 打开 Android_SDK/emulator 目录，并将所有文件复制
+    2. 打开 Android/tools 目录，并将刚才复制的文件全部粘贴并覆盖即可
+* 运行时出错提示：
+```
+emulator: WARNING: Crash service did not start
+emulator: ERROR: x86_ 64 emulation currently requires hardware acce1 erati on!
+P1ease ensure Windows Hypervisor P1atform (WHPX) is properly installed and usab1e.
+CPU acceleration status: HAXI is not installed on this machine
+More info on configuring VM acceleration on Windows:
+https:/ / developer. android. com/ studi o/ run/ emul ator一acce1 era ti on#v m-windows
+If you are using an Inte1 CPU: p1ease check that virtualization is enab1ed in the BIOS and that HAXK is installed and usable.
+Note: if Hyper-V or Credential Guard is enabled, the emulator wi11 not work with HAXK.
+See https://gi thub. com/ inte1/haxm/issues/ 105#issuecomment-470927735 for info on how to disable CredentiC的安域传直
+isor
+If you are using an AMD CPU or need to run alongside Hyper-V-based apps such as Docker, we recommend using
+P1 atform Genera1 inf ormation on acce1eration: https:/ / deve1 oper. android. com/ studi 0/ run/ emul ator -acce1 erati on.
+```
+    解决方法：
+    1. 打开 Android_SDK/tools/bin/ 目录，执行以下命令下载一个安装包：
+    ```
+    sdkmanager "extras;intel;Hardware_Accelerated_Execution_Manager"
+    ```
+    2. 此步骤一般可跳过，若下一步无法进行则通过该步骤解决：搜索一下你自己主板的虚拟化支持的选项在哪里就OK
+    3. 打开 Android_SDK\extras\intel\extras\intel\Hardware_Accelerated_Execution_Manager\ 目录，并执行里面的安装包 intelhaxm-android.exe
+    4. 安装过程：一直点下一步即可
 (以上参考：https://cloud.tencent.com/developer/article/1499938)
 
 # Flutter的安装及配置
