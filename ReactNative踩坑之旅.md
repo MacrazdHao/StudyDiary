@@ -126,3 +126,9 @@ https://www.jianshu.com/p/ac9aa35e77e5
 ## 坑10 部分第三方组件兼容性差（组件黑名单列表）
 
 1. react-native-snap-carousel：一个第三方的轮播组件，动效之类的都很nice，但只要用了，生成的app在部分机器上会导致闪退（如一加7pro）；
+
+## 坑11 expo调试应用react-navigation无法动态更新
+
+注：react-native-cli的调试没有试过，待确认
+
+在虚拟机中，更改了react-navigation的title（其他属性忘记会不会）之后，不会自动更新出来，需要关掉调试的app重新启动调试才能刷新，一不小心就以为是因为代码出现了问题
