@@ -84,7 +84,7 @@ https://gradle.org/releases/
 
 5. 正常情况下，会输出一大片的依赖目录列表；
 
-如果出现以下类似的错误，则可能是你下载的JDK版本没有按照一开始的要求来下载，重申，一定要JDK8，新版都是和Android SDK不兼容的：
+   如果出现以下类似的错误，则可能是你下载的JDK版本没有按照一开始的要求来下载，重申，一定要JDK8，新版都是和Android SDK不兼容的：
 
 ```
 Exception in thread "main" java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSchema 
@@ -119,11 +119,11 @@ system-images;android-[版本号];google_apis_playstore;x86   **模拟器系统�
 
 7. 配置系统环境
 
-添加系统变量：ANDROID_HOME、ANDROID_SDK
+   添加系统变量：ANDROID_HOME、ANDROID_SDK
 
-变量值都是刚才Android SDK tools解压的路径，依照刚才的示例则是D:/Android_SDK
+   变量值都是刚才Android SDK tools解压的路径，依照刚才的示例则是D:/Android_SDK
 
-附：若你使用的不是Flutter，同时如果需要手动创建emulator虚拟机的话，则按照以下流程进行创建：
+   附：若你使用的不是Flutter，同时如果需要手动创建emulator虚拟机的话，则按照以下流程进行创建：
 
 1. 使用控制台打开Android_SDK\tools目录
 
@@ -178,7 +178,8 @@ id: 5 or "android-29"
      Revision: 3
 ```
 
-说明：如果上面安装依赖的第6步中下载的镜像文件在这里没有显示，请检查指令是否错误，或SDK版本是否为旧版，如果是旧版，请务必在我提供的地址（官方/百度云）上下载，并重新配置全局变量
+   说明：
+   如果上面安装依赖的第6步中下载的镜像文件在这里没有显示，请检查指令是否错误，或SDK版本是否为旧版，如果是旧版，请务必在我提供的地址（官方/百度云）上下载，并重新配置全局变量
 
 4. 这是你已经下载好的安卓系统列表，选好一个后，然后输入以下命令：
 
@@ -186,7 +187,8 @@ id: 5 or "android-29"
 android create avd -n [虚拟机名称] -k [id]
 ```
 
-说明：如果无法执行该指令，请检查指令是否错误，或SDK版本是否为旧版，如果是旧版，请务必在我提供的地址（官方/百度云）上下载，并重新配置全局变量
+   说明：
+   如果无法执行该指令，请检查指令是否错误，或SDK版本是否为旧版，如果是旧版，请务必在我提供的地址（官方/百度云）上下载，并重新配置全局变量
 
 5. 等待创建完成后，执行以下命令运行虚拟机：
 
@@ -202,7 +204,7 @@ emulator -avd [虚拟机名称]
 PANIC：Missing emulator engine program for 'x86' CPU
 ```
 
-解决方法：
+   解决方法：
 
 1. 打开 Android_SDK/emulator 目录，并将所有文件复制
 
@@ -225,7 +227,7 @@ If you are using an AMD CPU or need to run alongside Hyper-V-based apps such as 
 P1 atform Genera1 inf ormation on acce1eration: https:/ / deve1 oper. android. com/ studi 0/ run/ emul ator -acce1 erati on.
 ```
 
-解决方法：
+   解决方法：
 
 1. 打开 Android_SDK/tools/bin/ 目录，执行以下命令下载一个安装包：
 
@@ -268,7 +270,7 @@ If Android SDK has been installed to a custom location, set $ANDROID_HOME to tha
 [✓] Connected devices（1 available）
 ```
 
-其他的则按照（仔细阅读英文提示）对应提示安装相关依赖即可
+   其他的则按照（仔细阅读英文提示）对应提示安装相关依赖即可
 
 # VSCode的安装及配置
 
