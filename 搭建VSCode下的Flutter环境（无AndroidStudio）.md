@@ -154,7 +154,7 @@ emulator -avd [虚拟机名称]
 ```
 PANIC：Missing emulator engine program for 'x86' CPU
 ```
-    解决方法：
+   解决方法：
     1. 打开 Android_SDK/emulator 目录，并将所有文件复制
     2. 打开 Android/tools 目录，并将刚才复制的文件全部粘贴并覆盖即可
 * 运行时出错提示：
@@ -172,7 +172,7 @@ isor
 If you are using an AMD CPU or need to run alongside Hyper-V-based apps such as Docker, we recommend using
 P1 atform Genera1 inf ormation on acce1eration: https:/ / deve1 oper. android. com/ studi 0/ run/ emul ator -acce1 erati on.
 ```
-    解决方法：
+   解决方法：
     1. 打开 Android_SDK/tools/bin/ 目录，执行以下命令下载一个安装包：
     ```
     sdkmanager "extras;intel;Hardware_Accelerated_Execution_Manager"
@@ -202,7 +202,7 @@ If Android SDK has been installed to a custom location, set $ANDROID_HOME to tha
 • Java version OpenJDK Runtime Environment (build 1.8.0_112-release-b06)
 [✓] Connected devices（1 available）
 ```
-	其他的则按照（仔细阅读英文提示）对应提示安装相关依赖即可
+   其他的则按照（仔细阅读英文提示）对应提示安装相关依赖即可
 # VSCode的安装及配置
 1. 自己去官网下载VSCode
 2. 在插件模块搜索flutter，点击安装(install)第一个Flutter
