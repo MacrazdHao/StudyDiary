@@ -132,3 +132,7 @@ https://www.jianshu.com/p/ac9aa35e77e5
 注：react-native-cli的调试没有试过，待确认
 
 在组件内部设置navigationOptions的属性之后，不会自动更新出来，需要关掉调试的app重新启动调试才能刷新，一不小心就以为是因为代码出现了问题
+
+## 坑12 子节点不能继承父节点style属性
+
+在HTML中，父节点有一部分样式是能够被子节点继承的，然而在react-native中，子节点无法继承父节点的style样式，这就会造成一些麻烦
