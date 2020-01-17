@@ -131,4 +131,4 @@ https://www.jianshu.com/p/ac9aa35e77e5
 
 注：react-native-cli的调试没有试过，待确认
 
-在虚拟机中，更改了react-navigation的title（其他属性忘记会不会）之后，不会自动更新出来，需要关掉调试的app重新启动调试才能刷新，一不小心就以为是因为代码出现了问题
+在组件内部设置navigationOptions的属性之后，不会自动更新出来，需要关掉调试的app重新启动调试才能刷新，一不小心就以为是因为代码出现了问题
