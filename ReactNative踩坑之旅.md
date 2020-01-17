@@ -136,3 +136,13 @@ https://www.jianshu.com/p/ac9aa35e77e5
 ## 坑12 子节点不能继承父节点style属性
 
 在HTML中，父节点有一部分样式是能够被子节点继承的，然而在react-native中，子节点无法继承父节点的style样式，这就会造成一些麻烦
+
+## 坑13 View没有onPress属性
+
+react-native的组件属性不像HTML一样自由，所有基础组件的属性都会被react-native严格规定，超出范围的是无效的
+
+比如View不像HTML中的div标签，可以添加onclick属性，在View组件中，添加onPress组件是无效的，一开始还以为我自己的写法有问题
+
+解决方法：
+
+在View的外层添加一层TouchableOpacity组件即可
