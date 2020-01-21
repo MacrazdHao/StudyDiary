@@ -147,7 +147,7 @@ react-native的组件属性不像HTML一样自由，所有基础组件的属性�
 
 在View的外层添加一层TouchableOpacity组件即可
 
-## react-navigation的正反传参
+## 坑14 react-navigation的正反传参
 
 这应该不算是坑，只是使用技巧问题，官方文档上貌似只有正向传参的方法，而没有反向的（没仔细看，懒得找了）。
 
