@@ -146,3 +146,51 @@ react-native的组件属性不像HTML一样自由，所有基础组件的属性�
 解决方法：
 
 在View的外层添加一层TouchableOpacity组件即可
+
+## react-navigation的正反传参
+
+这应该不算是坑，只是使用技巧问题，官方文档上貌似只有正向传参的方法，而没有反向的（没仔细看，懒得找了）。
+
+稍作记录一下
+
+正向传参
+
+```javascript
+
+// 页面1
+props.navigation.push('screenName', {
+  p1: 'a',
+  p2: function(){}
+});
+
+// 页面2
+// 获取params方式1
+props.navigation.state.params.p1;
+// 获取params方式2
+props.navigation.getParam('p1', 'default Value without passing value');
+
+```
+
+正向传参就不用再详细说了，官方文档直接就有demo
+
+而反向传参就有必要特别说一下，反向传参其实是利用了正向传参的原理，把函数传过去调用而已，看代码：
+
+```javascript
+    
+// 反向传参
+    // 页面1
+    const [test, setTest] = useState('test');
+    props.navigation.push('TeleCode', {
+      returnTest: (value) => {
+        setTest(value);
+      }
+    });
+    
+    // 页面2
+    // 调用反向传参函数方式1
+    props.navigation.getParam('returnTest')('a test value');
+    // 调用反向传参函数方式2
+    props.navigation.state.params.returnTest('a test value');
+    props.navigation.goBack();
+
+```
