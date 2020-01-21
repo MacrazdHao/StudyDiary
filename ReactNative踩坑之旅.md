@@ -176,21 +176,20 @@ props.navigation.getParam('p1', 'default Value without passing value');
 而反向传参就有必要特别说一下，反向传参其实是利用了正向传参的原理，把函数传过去调用而已，看代码：
 
 ```javascript
-    
-// 反向传参
-    // 页面1
-    const [test, setTest] = useState('test');
-    props.navigation.push('TeleCode', {
-      returnTest: (value) => {
-        setTest(value);
-      }
-    });
-    
-    // 页面2
-    // 调用反向传参函数方式1
-    props.navigation.getParam('returnTest')('a test value');
-    // 调用反向传参函数方式2
-    props.navigation.state.params.returnTest('a test value');
-    props.navigation.goBack();
+
+// 页面1
+const [test, setTest] = useState('test');
+props.navigation.push('TeleCode', {
+  returnTest: (value) => {
+    setTest(value);
+  }
+});
+
+// 页面2
+// 调用反向传参函数方式1
+props.navigation.getParam('returnTest')('a test value');
+// 调用反向传参函数方式2
+props.navigation.state.params.returnTest('a test value');
+props.navigation.goBack();
 
 ```
