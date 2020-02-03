@@ -22,7 +22,7 @@ SyntaxError: Invalid regular expression: /(.*\\__fixtures__\\.*|node_modules[\\\
 
 ## 坑2 每个原生组件都要import
 
-这不知道算不算坑，反正就会觉得挺麻烦的，一不留神还以为别的地方出错。
+这不知道算不算坑，反正就会觉得挺麻烦的，要是漏了引入某个组件，一不留神还以为别的地方出错。
 
 ```javascript
 import { StyleSheet, Text, View } from 'react-native';
