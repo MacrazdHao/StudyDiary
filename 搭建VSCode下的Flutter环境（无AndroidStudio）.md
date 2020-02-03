@@ -121,7 +121,7 @@ system-images;android-[版本号];google_apis_playstore;x86   **模拟器系统�
 
    添加系统变量：ANDROID_HOME、ANDROID_SDK
 
-   变量值都是刚才Android SDK tools解压的路径，依照刚才的示例则是D:/Android_SDK
+   变量值都是刚才Android SDK tools解压的路径，依照刚才的示例则是D:\Android_SDK
 
    附：若你使用的不是Flutter，同时如果需要手动创建emulator虚拟机的话，则按照以下流程进行创建：
 
