@@ -229,7 +229,9 @@ P1 atform Genera1 inf ormation on acce1eration: https:/ / deve1 oper. android. c
 
    解决方法：
 
-   * 这种情况针对不同CPU是有不同处理方法的，首先是**Intel的CPU**的处理方法：
+   这种情况针对不同CPU是有不同处理方法的。
+   
+   * 首先是**Intel的CPU**的处理方法：
 
 1. 打开 Android_SDK/tools/bin/ 目录，执行以下命令下载一个安装包：
 
