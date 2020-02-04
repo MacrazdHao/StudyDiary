@@ -208,6 +208,12 @@ android create avd -n [虚拟机名称] -k [id]
    null
    ```
    
+   如果是我上面这个例子，则应该是
+   
+   ```
+   .\android.bat create avd -n testAVD -k "system-images;android-29;google_apis_playstore;x86_64"
+   ```
+   
 12. 等待创建完成后，执行以下命令运行虚拟机：
 
 ```
