@@ -190,6 +190,24 @@ android create avd -n [虚拟机名称] -k [id]
    说明：
 
    如果无法执行该指令，请检查指令是否错误，或SDK版本是否为旧版，如果是旧版，请务必在我提供的地址（官方/百度云）上下载，并重新配置全局变量
+   
+   如果你看到类似这种提示，那么把刚才你执行的命令中的id，换成最底下[标签①]描述的那一串，*并且用双引号包住*，重新执行一遍即可
+   
+   ```
+   **************************************************************************
+   The "android" command is deprecated.
+   For manual SDK, AVD, and project management, please use Android Studio.
+   For command-line tools, use tools\bin\sdkmanager.bat
+   and tools\bin\avdmanager.bat
+   **************************************************************************
+
+   Invoking "E:\Android_SDK\tools\bin\avdmanager" create avd -n testAVD -k android-29
+
+   Error: Package path is not valid. Valid system image paths are:ository...
+   system-images;android-29;google_apis_playstore;x86_64    // ①上面说的是这串
+   null
+   ```
+   
 12. 等待创建完成后，执行以下命令运行虚拟机：
 
 ```
