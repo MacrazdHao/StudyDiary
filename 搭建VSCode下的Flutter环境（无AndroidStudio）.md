@@ -66,7 +66,7 @@ https://gradle.org/releases/
 
 不赘述，参考https://www.cnblogs.com/suni/p/8279672.html
 
-# Android SDK的安装及配置
+# Android SDK的安装及配置（Android Studio内置虚拟机单独安装）
 
 这是个关键的一步，可以避开臃肿得像恶魔一样的AndroidStudio的安装。
 
