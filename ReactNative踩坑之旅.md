@@ -193,3 +193,41 @@ props.navigation.state.params.returnTest('a test value');
 props.navigation.goBack();
 
 ```
+
+# 坑15 ScrollView，SectionList和FlatList
+
+ScrollView，当渲染数据多起来的时候，加载速度会越来越满，甚至半天打不开页面。
+
+这种需求之下，能够取而代之的是SectionList和FlatList。
+
+目前使用了SectionList，而FlatList尚未用过，先说说SectionList目前遇到的坑吧。
+
+SectionList和ScrollView的滚动函数不同：
+
+ScrollView的是ScrollTo，甚至能直接输入y轴偏移直接滚动；
+
+而SectionList的则是有另一个函数ScrollToLocation，这个函数不接受y轴偏移，而是以itemIndex，sectionIndex，viewOffset，viewPosition作为定位参数。
+
+官方对于这几个的参数的解释是这样的：
+
+```
+'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to true.
+'itemIndex' (number) - Index within section for the item to scroll to. Required.
+'sectionIndex' (number) - Index for section that contains the item to scroll to. Required.
+'viewOffset' (number) - 一个以像素为单位，到最终位置偏移距离的固定值，比如为了弥补粘接的header所占据的空间。
+'viewPosition' (number) - A value of 0 places the item specified by index at the top, 1 at the bottom, and 0.5 centered in the middle.
+```
+
+ScrollToLocation官网详述: https://reactnative.cn/docs/sectionlist/#scrolltolocation
+
+然鹅看不太懂是不是？
+
+我遇到的坑有两个：
+
+1. 我只输入了sectionIndex，这个参数的含义是，需要滚动到的目标section的序号，然鹅我知道是这个意思，但由于没有写itemIndex而出现错误，找了半天原因没找着。
+
+   注意了，只要填了sectionIndex就要填itemIndex，它不会自动给你填充默认值。
+   
+   而如果你反过来只填写了itemIndex，那没问题，sectionIndex默认为0，这确实令我这个新手感到黑人问号。
+   
+2. SectionList的scrollToLocation函数无法定位到还未渲染的底下的组(section)或项(item)，这个问题我搜了一下，是有很多相关解答的，目前正尝试，尝试后会回来报告。
