@@ -1,4 +1,9 @@
 # 为开发公司App不得不开新坑
+
+## 前言
+
+如果哪天真有哪个大佬来看到这篇文章，请三思，这只是一名入门菜鸟所写，如有问题，请多担待，提出相关内容并希望能够得到指正，谢谢。
+
 ## 坑1 - 运行环境
 
 参考文章：https://blog.csdn.net/u013551952/article/details/103227165
@@ -283,3 +288,5 @@ ScrollToLocation官网详述: https://reactnative.cn/docs/sectionlist/#scrolltol
 letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处的pageY和pageX是相对于全局（整个手机屏幕）而言的。
 
 因此如果通过这个参数来计算相对于我们App内部界面的y轴坐标，则需要：pageY - StatusBar.currentHeight，如果还需要减去自己App设置的navigationBar（标题栏）的话，自行减去即可。
+
+由于本人还是新手，有没有其他更便捷的方法不知道，只能先以此顶替了，其他则有待发掘，如果有大佬看到这篇文章，并且也有方法的话，希望能多交流。
