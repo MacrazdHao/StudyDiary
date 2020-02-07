@@ -194,7 +194,7 @@ props.navigation.goBack();
 
 ```
 
-# 坑15 ScrollView，SectionList和FlatList
+## 坑15 ScrollView，SectionList和FlatList
 
 ScrollView，当渲染数据多起来的时候，加载速度会越来越满，甚至半天打不开页面。
 
@@ -266,19 +266,19 @@ ScrollToLocation官网详述: https://reactnative.cn/docs/sectionlist/#scrolltol
 
 大概就是这样，总的来说FlatList只要计算好getItemLayout相关的数据，一切好办。
 
-# 坑16 获取元素宽高、坐标
+## 坑16 获取元素宽高、坐标
 
 因为React Native本身是不能直接通过Dom来获取元素的各种样式的，通过一番搜索，找到了获取的方法。
 
 每个基础组件都会有一个onLayout这个绑定事件，这个绑定事件是在该组件渲染时同步执行的，它会有一个默认参数(event)提供给我们，我们可以读取该参数的数据，即event.nativeEvent.layout，里面就是记录着该组件的宽高、坐标信息。
 
-# 坑17 Status高度（即系统顶部的状态栏）
+## 坑17 Status高度（即系统顶部的状态栏）
 
 有的时候会不得不使用这个数据，我一开始也没想到居然会使用到这个？来说说怎么获取。
 
 在需要的组件（页面）中载入StatusBar，然后StatusBar.currentHeight即可获取。
 
-# 坑18 letterIndexTouchMoveHandler事件（基础组件的鼠标滑动绑定事件）
+## 坑18 letterIndexTouchMoveHandler事件（基础组件的鼠标滑动绑定事件）
 
 letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处的pageY和pageX是相对于全局（整个手机屏幕）而言的。
 
