@@ -200,13 +200,15 @@ ScrollView，当渲染数据多起来的时候，加载速度会越来越满，�
 
 这种需求之下，能够取而代之的是SectionList和FlatList。
 
-目前使用了SectionList，而FlatList尚未用过，先说说SectionList目前遇到的坑吧。
+目前使用了SectionList，而FlatList尚未用过（已用），先说说SectionList目前遇到的坑吧。
 
 SectionList和ScrollView的滚动函数不同：
 
 ScrollView的是ScrollTo，甚至能直接输入y轴偏移直接滚动；
 
 而SectionList的则是有另一个函数ScrollToLocation，这个函数不接受y轴偏移，而是以itemIndex，sectionIndex，viewOffset，viewPosition作为定位参数。
+
+数据的形式是这样的：[ { title: 'xxx', data: [ ... ] }, { title: 'xxx', data: [ ... ] }, { title: 'xxx', data: [ ... ] }, ... ]
 
 官方对于这几个的参数的解释是这样的：
 
@@ -231,3 +233,17 @@ ScrollToLocation官网详述: https://reactnative.cn/docs/sectionlist/#scrolltol
    而如果你反过来只填写了itemIndex，那没问题，sectionIndex默认为0，这确实令我这个新手感到黑人问号。
    
 2. SectionList的scrollToLocation函数无法定位到还未渲染的底下的组(section)或项(item)，这个问题我搜了一下，是有很多相关解答的，目前正尝试，尝试后会回来报告。
+
+不好意思，我不用SectionList了，说说原因（也是坑）：
+
+1. 对于上述描述的SectionList的第2个坑，网上的解决方案是使用getItemLayout的方法，getItemLayout是SectionList的一个属性，用于在其（通过滚动函数）滚动时，节省不必要的计算开支而做的，其提供的参数及需要的返回值为(data, index) => {length: number, offset: number, index: number}。
+
+   这里它本身提供的参数data为我们提供的data本身，index表示当前元素序号（这里有个巨坑，注意了，这里的index，包含了sections（每一组数据的标题），即把sections也算在元素之一内。下列引发的一切血案于此有关），而我们需要提供给它的length表示每个元素的高度，offset表示当前元素的偏移（相对于SectionList内部的y轴偏移），index就是它给的index，原封不动返回。
+  
+   当然了，这里可以通过自己定义的某个函数来计算相关值并返回给它，可是！！！我一旦在这个函数内调用了当前组件（指调用了SectionList的组件function / Class）内部定义的其他函数或变量，出错了！！完全找不到解释！！但是调用通过props传入的函数/参数没问题！
+  
+2. 好的，我把一切用到的参数都通过props传入了，那么问题又来了，因为本身section（每一组数据的标题）一般来说不可能和正常的Item同一样式高度，因此要通过特殊计算offset和判断length，设置好了之后，确实也就可以滚动到未渲染的部分。
+
+   可是！！！问题再次来了！！无论我怎么计算offset，即使再精准，也莫名其妙定位不出来，甚至乱跳！！我花了大量时间搞这玩意儿，结果还是不行！！！！
+   
+   以下决定使用FlatList了，具体坑请看：
