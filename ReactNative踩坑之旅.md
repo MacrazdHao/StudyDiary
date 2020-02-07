@@ -243,7 +243,43 @@ ScrollToLocation官网详述: https://reactnative.cn/docs/sectionlist/#scrolltol
    当然了，这里可以通过自己定义的某个函数来计算相关值并返回给它，可是！！！我一旦在这个函数内调用了当前组件（指调用了SectionList的组件function / Class）内部定义的其他函数或变量，出错了！！完全找不到解释！！但是调用通过props传入的函数/参数没问题！
   
 2. 好的，我把一切用到的参数都通过props传入了，那么问题又来了，因为本身section（每一组数据的标题）一般来说不可能和正常的Item同一样式高度，因此要通过特殊计算offset和判断length，设置好了之后，确实也就可以滚动到未渲染的部分。
-
+   
    可是！！！问题再次来了！！无论我怎么计算offset，即使再精准，也莫名其妙定位不出来，甚至乱跳！！我花了大量时间搞这玩意儿，结果还是不行！！！！
    
+   按照官方文档来说，SectionList本身没有getItemLayout这个参数（但FlatList），不知是不是这个原因，导致根本无法定位准确。
+   
    以下决定使用FlatList了，具体坑请看：
+   
+使用FlatList的过程，由于踩过了SectionList这个巨坑，因此已经有点看淡了，心态较为平和，也有一定的经验了，看文档和相关资料来说，FlatList和SectionList差距应当并非很大，所以已经做好了心理准备，以及一开始就觉得它和SectionList相差无几，所以不愿意尝试，现在也只能死马当活马医，不得不尝试了。
+
+可是神奇的是，使用的时候却意外的顺利，除了要改一下相关的参数之外，也只有一些小坑，虽然也花了点时间，但最后确确实实稳定地实现了功能。
+
+首先说说遇到的坑：
+
+1. 数据形式，这应该不太算是坑吧，但还是要说说。因为它需要的数据是单一的，而不像SectionList有一个特殊的Section（标题），所以传入的数据形式只能是纯数组，相对于SectionList的标题部分，在FlatList里要改成与其子元素同一层级，具体形式如：[ { value: 'A', title: true }, { value: 'child1', title: false }, { value: 'child2', title: false }, { value: 'B', title: true }, { value: 'child3', title: false } ]
+
+2. 由于数据形式的影响，我又改了一次我的数据。同时我还得在组件内，通过循环将每个元素所属组的标题的序号（比如上述例子的A为组1，则child1和child2两个元素中加入groupIndex为0，对应的B组的标题，和它包括的child3的groupIndex设置为1）、偏移（数值和计算同SectionList，都是指不包含自身的其之上的标题、元素的高度的总和）记录到原数据的每一项之中。当然了，这些数据都是为了计算getItemLayout所用的。
+
+3. 同SectionList，不使用getItemLayout是无法滚动到未渲染部分的，否则直接报错。最重要的是，FlatList的getItemLayout并不会因为调用当前组件（指调用了SectionList的组件function / Class）内部定义的其他函数或变量而出错，随意调用都行，非常方便。
+
+4. 滚动函数和SectionList的scrollToLocation不同，FlatList官方推荐使用的是ScrollToIndex，接受的参数为{ animate: true(default), index, viewOffset, viewPosition }，index当然就是元素序号了，这个直接它本身就会提供给你，直接填入即可，然后就是viewOffset，也是无脑填0即可。
+
+大概就是这样，总的来说FlatList只要计算好getItemLayout相关的数据，一切好办。
+
+# 坑16 获取元素宽高、坐标
+
+因为React Native本身是不能直接通过Dom来获取元素的各种样式的，通过一番搜索，找到了获取的方法。
+
+每个基础组件都会有一个onLayout这个绑定事件，这个绑定事件是在该组件渲染时同步执行的，它会有一个默认参数(event)提供给我们，我们可以读取该参数的数据，即event.nativeEvent.layout，里面就是记录着该组件的宽高、坐标信息。
+
+# 坑17 Status高度（即系统顶部的状态栏）
+
+有的时候会不得不使用这个数据，我一开始也没想到居然会使用到这个？来说说怎么获取。
+
+在需要的组件（页面）中载入StatusBar，然后StatusBar.currentHeight即可获取。
+
+# 坑18 letterIndexTouchMoveHandler事件（基础组件的鼠标滑动绑定事件）
+
+letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处的pageY和pageX是相对于全局（整个手机屏幕）而言的。
+
+因此如果通过这个参数来计算相对于我们App内部界面的y轴坐标，则需要：pageY - StatusBar.currentHeight，如果还需要减去自己App设置的navigationBar（标题栏）的话，自行减去即可。
