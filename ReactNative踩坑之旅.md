@@ -290,3 +290,7 @@ letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处
 因此如果通过这个参数来计算相对于我们App内部界面的y轴坐标，则需要：pageY - StatusBar.currentHeight，如果还需要减去自己App设置的navigationBar（标题栏）的话，自行减去即可。
 
 由于本人还是新手，有没有其他更便捷的方法不知道，只能先以此顶替了，其他则有待发掘，如果有大佬看到这篇文章，并且也有方法的话，希望能多交流。
+
+## 坑19 react-navigation跨栈返回（goBack）
+
+参考：https://blog.csdn.net/sun_DongLiang/article/details/86707388
