@@ -329,3 +329,11 @@ letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处
 <Text numberOfLines={3} style={styles.previewText}>{preview}</Text>
 
 ```
+
+## 坑21 Image标签不能设置borderRadius
+
+与html不同，无法给Image组件的样式添加borderRadius属性，设置了没有效果。
+
+解决方法：
+
+在Image组件外套一层View，然后给这层View设置borderRadius，并且设置overflow为hidden。
