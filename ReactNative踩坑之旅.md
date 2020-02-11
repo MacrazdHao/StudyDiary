@@ -132,6 +132,29 @@ https://www.jianshu.com/p/ac9aa35e77e5
 
 1. react-native-snap-carousel：一个第三方的轮播组件，动效之类的都很nice，但只要用了，生成的app在部分机器上会导致闪退（如一加7pro）；
 
+2. ant-design：同上
+
+一般伴随以下警告：
+
+```
+
+VM25 common.bundle.js:36926 Warning: componentWillMount has been renamed, and is not recommended for use. See https://fb.me/react-unsafe-component-lifecycles for details.
+
+* Move code with side effects to componentDidMount, and set initial state in the constructor.
+* Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict mode. In React 17.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.
+
+Please update the following components: Router, RouterContext
+
+```
+
+引起上述问题的原因：
+
+由于react 16.7版本以上将会移除组件生命周期钩子componentWillMount方法，所以在构建时会出现问题。
+
+解决方法：
+
+打开node_modules中使用到的那些第三方组件的代码，将componentWillMount更改为UNSAFE_componentWillMount即可。
+
 ## 坑11 expo调试应用react-navigation无法动态更新
 
 注：react-native-cli的调试没有试过，待确认
@@ -294,3 +317,15 @@ letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处
 ## 坑19 react-navigation跨栈返回（goBack）
 
 参考：https://blog.csdn.net/sun_DongLiang/article/details/86707388
+
+## 坑20 Text超出部分缩略为省略号
+
+与web端不同，超出部分缩略为省略号无需配置style样式，Text标签内置属性，使用如下：
+
+```html
+
+// numberOfLines表示超出行数缩略为省略号
+
+<Text numberOfLines={3} style={styles.previewText}>{preview}</Text>
+
+```
