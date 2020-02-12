@@ -337,3 +337,13 @@ letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处
 解决方法：
 
 在Image组件外套一层View，然后给这层View设置borderRadius，并且设置overflow为hidden。
+
+## 坑22 导入组件不存在错误提示
+
+如果出现以下错误提示，则检查是否存在导入路径错误的组件，或导入了不存在的三方依赖组件。
+
+```
+
+The development server returned response error code: 500
+
+```
