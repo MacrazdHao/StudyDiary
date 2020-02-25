@@ -347,3 +347,33 @@ letterIndexTouchMoveHandler提供给我们的event参数中包含的鼠标所处
 The development server returned response error code: 500
 
 ```
+
+## 坑23 事件监听及useEffect
+
+这里以Keyboard对象为例，因为我就是在这遇到的问题。
+
+```
+
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
+  const [showImgList, setShowImgList] = useState(false);
+  let onKeyBoardDidShow = (e) => {
+    setKeyboardHeight(e.endCoordinates.height);
+    setShowImgList(false);
+  };
+  let onKeyBoardDidHide = (e) => {
+    setKeyboardHeight(0);
+    setShowImgList(imgList.length > 0 && true);
+  };
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', onKeyBoardDidShow);
+    Keyboard.addListener('keyboardDidHide', onKeyBoardDidHide);
+    return () => {
+      Keyboard.removeListener('keyboardDidShow', onKeyBoardDidShow);
+      Keyboard.removeListener('keyboardDidHide', onKeyBoardDidHide);
+    }
+  }, []);
+  
+```
+
+这里在useEffect中addListener之后，要加一个return，返回一个函数，该函数内容为注销监听器(listener)，并且removeListener的第二个参数需要与注册时的事件函数一致，否则无效。
+
