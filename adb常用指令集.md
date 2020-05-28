@@ -37,3 +37,8 @@ adb shell am force-stop [包名]
 adb shell am start [包名]/[Activity名]
 如：com.weex.app/com.weex.app.SplashActivity
 ```
+
+adb 设备offline解决方法：
+
+http://www.511yj.com/eyuan-adb-emulator.html
+
