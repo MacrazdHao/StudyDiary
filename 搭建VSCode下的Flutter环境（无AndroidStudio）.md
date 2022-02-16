@@ -17,7 +17,7 @@ https://pan.baidu.com/s/1uWcRwUxZzc0m3fYQYTcOQw
 提取码: w6us
 ```
 
-* Android SDK Tools
+* ---Android SDK Tools（已弃用）---
 
 ```
 进入页面后找到Command line tools only点击下载
@@ -26,6 +26,14 @@ https://developer.android.com/studio/# command-tools
 百度云备用链接：
 https://pan.baidu.com/s/1FeBX9Ui8WMMIGfyL96HdpQ
 提取码: wv11
+```
+
+* Android cmdline-tools
+
+```
+进入页面后找到Command line tools only点击下载
+下载地址：
+https://developer.android.com/studio?hl=en#cmdline-tools
 ```
 
 * Flutter
@@ -68,11 +76,13 @@ https://gradle.org/releases/
 
 # Android SDK的安装及配置（Android Studio内置虚拟机单独安装）
 
-这是个关键的一步，可以避开臃肿得像恶魔一样的AndroidStudio的安装。
+这是个关键的一步，可以避开臃肿得像魔鬼一样的AndroidStudio的安装。
 
-1. 将下载来的Android SDK Tools的压缩包解压到某一文件夹，这里以D:/Android_SDK为例，注意，不要把压缩包里面tools文件夹中的文件解压到文件夹，而是直接保留tools文件夹进行解压，解压后即D:/Android_SDK/tools
+1. 将下载来的--- Android SDK Tools --- cmdline-tools 的压缩包解压到某一文件夹，这里以D:/Android_SDK为例，解压后即D:/Android_SDK/tools
 
-2. 打开刚才解压的文件夹，进入D:/Android_SDK/tools/bin，找到**SDKManager.bat**
+2. 打开刚才解压的文件夹D:/Android_SDK/cmdline-tools内创建一个名为**latest**的文件夹，并将D:/Android_SDK/cmdline-tools的其余所有文件和文件夹移进去
+
+3. 进入D:/Android_SDK/cmdline-tools/latest/bin/，找到**sdkmanager.bat**
 
 3. 在该目录的窗口空白处按住Shift+鼠标右键，选择打开Power Shell窗口
 
