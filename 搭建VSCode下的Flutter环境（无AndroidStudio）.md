@@ -127,6 +127,20 @@ emulator   模拟器，可选。如果真机调试可忽略
 system-images;android-[版本号];google_apis_playstore;x86   **模拟器系统镜像**，可选。如果真机调试可忽略
 ```
 
+   如果出现含有“Address already in use : connect”的报错，则按照以下步骤进行处理处理即可：
+   
+   1. 打开注册表：regedit 
+   
+   2. HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\ Services\TCPIP\Parameters 
+   
+   3. 新建 DWORD值，name：TcpTimedWaitDe，value：30（十进制） –> 设置为30秒，默认是240秒 
+   
+   4. 新建 DWORD值，name：MaxUserPort，value：65534（十进制） –> 设置最大连接数65534 
+   
+   5. 重启系统
+   
+   来源：https://www.cnblogs.com/zhangchengqi/archive/2012/08/09/2630330.html
+
 7. 配置系统环境
 
    添加系统变量：ANDROID_HOME、ANDROID_SDK
