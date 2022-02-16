@@ -17,7 +17,7 @@ https://pan.baidu.com/s/1uWcRwUxZzc0m3fYQYTcOQw
 提取码: w6us
 ```
 
-* ---Android SDK Tools（已弃用）---
+* ~~Android SDK Tools（已弃用）~~
 
 ```
 进入页面后找到Command line tools only点击下载
@@ -28,7 +28,7 @@ https://pan.baidu.com/s/1FeBX9Ui8WMMIGfyL96HdpQ
 提取码: wv11
 ```
 
-* Android cmdline-tools
+* Android cmdline-tools（SDK Tools改用）
 
 ```
 进入页面后找到Command line tools only点击下载
@@ -78,7 +78,7 @@ https://gradle.org/releases/
 
 这是个关键的一步，可以避开臃肿得像魔鬼一样的AndroidStudio的安装。
 
-1. 将下载来的--- Android SDK Tools --- cmdline-tools 的压缩包解压到某一文件夹，这里以D:/Android_SDK为例，解压后即D:/Android_SDK/tools
+1. 将下载来的~~Android SDK Tools~~ cmdline-tools 的压缩包解压到某一文件夹，这里以D:/Android_SDK为例，解压后即D:/Android_SDK/tools
 
 2. 打开刚才解压的文件夹D:/Android_SDK/cmdline-tools内创建一个名为**latest**的文件夹，并将D:/Android_SDK/cmdline-tools的其余所有文件和文件夹移进去
 
